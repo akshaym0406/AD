@@ -1,0 +1,36 @@
+#include <conio.h> 
+#include <stdio.h> 
+#include <string.h> 
+ 
+void main() { 
+  char t[20], p[20]; 
+  int i, j, k, flag = 0, m, n; 
+  clrscr(); 
+ 
+  printf("\nEnter the text: "); 
+  gets(t); 
+ 
+  printf("\nEnter the pattern: "); 
+  gets(p); 
+ 
+  n = strlen(t); 
+  m = strlen(p); 
+ 
+  for (i = 0; i < n - m; i++) { 
+    j = 0; 
+    while (j < m && p[j] == t[i + j]) 
+      j += 1; 
+    if (j == m) { 
+      flag = 1; 
+      k = i + 1; 
+    } else 
+      flag = 0; 
+  } 
+ 
+  if (flag == 1)
+   printf("\nPattern found at %d position", k); 
+  else 
+    printf("\nPattern not found in the string"); 
+ 
+  getch(); 
+}
